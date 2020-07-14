@@ -10,6 +10,7 @@ class Backer
 
   def back_project(project)
     @backed_projects << project
+    #unless avoids infinite loop
     project.add_backer(self) unless project.backers.include?(self)
   end
 end
